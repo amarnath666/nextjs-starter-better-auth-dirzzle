@@ -8,6 +8,34 @@
       "when": 1751868784962,
       "tag": "0000_fair_metal_master",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1751953003698,
+      "tag": "0001_strong_leader",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1751964010028,
+      "tag": "0002_large_rumiko_fujikawa",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1752027811496,
+      "tag": "0003_far_fallen_one",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1752027932010,
+      "tag": "0004_harsh_excalibur",
+      "breakpoints": true
     }
   ]
 }
