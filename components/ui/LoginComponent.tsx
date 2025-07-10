@@ -33,14 +33,16 @@ const LoginComponent = ({
     setSigningIn(true);
 
     try {
-      await authClient.signIn.social({
+     const result = await authClient.signIn.social({
         provider: "google",
         callbackURL: "/", // Redirect after successful login
       });
+      if (result?.data?.url) {
       toast.success("You have been successfully logged in");
+      }
       setIsOpen(false);
-    } catch (error) {
-      console.log(error);
+    } catch (error: unknown | undefined) {
+      console.error(error);
       toast.error("Login failed! Please try again");
     } finally {
       setSigningIn(false);

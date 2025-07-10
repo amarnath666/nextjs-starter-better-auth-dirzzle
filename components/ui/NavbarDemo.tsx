@@ -15,7 +15,7 @@ import LoginComponent from "./LoginComponent";
 import { UserSchema, User } from "@/app/types/user";
 import { authClient } from "@/app/lib/auth-client";
 import ProfileDropdown from "./ProfileDropdown";
-
+import { ModeToggle } from "./theme-toggle";
 
 export function NavbarDemo() {
   const navItems = [
@@ -37,6 +37,7 @@ export function NavbarDemo() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState<User | null>(null);
 
+
   // Check if user is already authenticated
   useEffect(() => {
     const checkAuth = async (): Promise<void> => {
@@ -45,11 +46,10 @@ export function NavbarDemo() {
 
         if (session && session.data && session.data.user) {
           const validatedUser = UserSchema.safeParse(session.data.user);
-              if (validatedUser.success) {
-          setIsLoggedIn(true);
-          console.log(validatedUser.data, "validated user");
-          setUserData(validatedUser.data);
-              }
+          if (validatedUser.success) {
+            setIsLoggedIn(true);
+            setUserData(validatedUser.data);
+          }
         }
       } catch (error) {
         console.error("Error checking authentication:", error);
@@ -66,7 +66,8 @@ export function NavbarDemo() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            {/* <NavbarButton variant="secondary">Login</NavbarButton> */}
+   
+            <ModeToggle />
             {isLoggedIn ? (
               <ProfileDropdown userData={userData} />
             ) : (
@@ -102,6 +103,7 @@ export function NavbarDemo() {
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
+               <ModeToggle />
               {isLoggedIn ? (
                 <ProfileDropdown userData={userData} />
               ) : (
