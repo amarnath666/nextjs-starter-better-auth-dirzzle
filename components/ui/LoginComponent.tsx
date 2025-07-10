@@ -37,9 +37,6 @@ const LoginComponent = ({
         provider: "google",
         callbackURL: "/", // Redirect after successful login
       });
-      if (result?.data?.url) {
-        toast.success("You have been successfully logged in");
-      }
       setIsOpen(false);
     } catch (error: unknown | undefined) {
       console.error(error);
