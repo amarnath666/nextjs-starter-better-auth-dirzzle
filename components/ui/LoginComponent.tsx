@@ -33,12 +33,12 @@ const LoginComponent = ({
     setSigningIn(true);
 
     try {
-     const result = await authClient.signIn.social({
+      const result = await authClient.signIn.social({
         provider: "google",
         callbackURL: "/", // Redirect after successful login
       });
       if (result?.data?.url) {
-      toast.success("You have been successfully logged in");
+        toast.success("You have been successfully logged in");
       }
       setIsOpen(false);
     } catch (error: unknown | undefined) {
@@ -75,12 +75,11 @@ const LoginComponent = ({
   </DropdownMenu>;
 
   return (
-    <Card className="w-full max-w-md">
+    <Card className="relative w-full max-w-md">
       <CardHeader className="text-center">
         <CardTitle className="text-2xl font-bold">Welcome Back</CardTitle>
         <CardDescription>Sign in to your account to continue</CardDescription>
       </CardHeader>
-
       <CardContent className="space-y-4">
         <Button
           onClick={handleGoogleSignIn}

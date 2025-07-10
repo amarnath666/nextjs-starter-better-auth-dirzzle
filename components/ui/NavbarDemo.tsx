@@ -37,7 +37,6 @@ export function NavbarDemo() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState<User | null>(null);
 
-
   // Check if user is already authenticated
   useEffect(() => {
     const checkAuth = async (): Promise<void> => {
@@ -66,7 +65,6 @@ export function NavbarDemo() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-   
             <ModeToggle />
             {isLoggedIn ? (
               <ProfileDropdown userData={userData} />
@@ -103,7 +101,7 @@ export function NavbarDemo() {
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
-               <ModeToggle />
+              <ModeToggle />
               {isLoggedIn ? (
                 <ProfileDropdown userData={userData} />
               ) : (
@@ -126,12 +124,17 @@ export function NavbarDemo() {
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
-
       {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50 ">
-          <LoginComponent setIsOpen={setIsOpen} />
+        <div
+          className="fixed inset-0 flex items-center justify-center bg-black/50 z-50"
+          onClick={() => setIsOpen(false)}
+        >
+          <div onClick={(e) => e.stopPropagation()}>
+            <LoginComponent setIsOpen={setIsOpen} />
+          </div>
         </div>
       )}
+
       {/* Navbar */}
     </div>
   );
