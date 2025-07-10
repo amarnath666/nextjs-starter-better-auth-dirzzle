@@ -33,10 +33,11 @@ const LoginComponent = ({
     setSigningIn(true);
 
     try {
-      const result = await authClient.signIn.social({
-        provider: "google",
-        callbackURL: "/", // Redirect after successful login
-      });
+      await authClient.signIn.social(
+        {
+          provider: "google",
+          callbackURL: "/", // Redirect after successful login
+        });
       setIsOpen(false);
     } catch (error: unknown | undefined) {
       console.error(error);
@@ -82,7 +83,7 @@ const LoginComponent = ({
           onClick={handleGoogleSignIn}
           disabled={signingIn}
           variant="outline"
-          className="w-full"
+          className="w-full cursor-pointer"
           size="lg"
         >
           {signingIn ? (
