@@ -106,7 +106,7 @@ npx @better-auth/cli@latest generate
 ### 6. Start the Development Server
 
 ```bash
-bun dev
+bun run dev
 ```
 
 Your application will be available at `http://localhost:3000`
@@ -125,9 +125,9 @@ This will open a web interface where you can browse your database tables, view d
 
 ## Available Scripts
 
-- `bun dev` - Start development server
-- `bun build` - Build for production
-- `bun start` - Start production server
+- `bun run dev` - Start development server
+- `bun run build` - Build for production
+- `bun run start` - Start production server
 - `bun drizzle-kit generate` - Generate database migrations
 - `bun drizzle-kit push` - Apply migrations to database
 - `bun drizzle-kit studio` - Open Drizzle Studio
